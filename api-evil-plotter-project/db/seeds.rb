@@ -16,18 +16,12 @@ require 'faker'
 #   puts new_user
 # end
 
-10.times do
+300.times do
   title = Faker::Pokemon.name
-  content = Faker::ChuckNorris.fact
-  note_title = Faker::GameOfThrones.house
   new_board = Board.new(title: title)
-  # new_board.user = User.all.where("id = ?", Random.new.rand(1..100)).first.id
-  new_board.user = User.all.first
-
+  new_board.user = User.all.where("id = ?", Random.new.rand(1..100)).first
+  new_board.save
   (Random.new.rand(1..3)).times do
-    new_board.notes << Note.create(title: note_title, content: content)
+    new_board.notes << Note.create(title: Faker::GameOfThrones.house, content: Faker::ChuckNorris.fact)
   end
-  puts new_board.notes
-  puts new_board
-  # new_board.save
 end

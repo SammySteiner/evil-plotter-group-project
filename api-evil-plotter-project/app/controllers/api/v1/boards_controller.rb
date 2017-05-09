@@ -1,13 +1,16 @@
 class Api::V1::BoardsController < ApplicationController
-  before_action :set_board, only: [:show, :update, :delete]
+  before_action :set_board, only: [:update, :delete]
 
   def index
     # to "users/:id/boards" because of this filter by user
-    @boards = Board.all # where("user_id = ?", user.id)
+    @boards = Board.all.where("user_id = ?", params[:id])
     render json: @boards
   end
 
   def show
+    @boards = Board.all.where("user_id = ?", params[:user_id])
+    index = (params[:board_id].to_i - 1)
+    @board = @boards[index]
     render json: @board
   end
 
