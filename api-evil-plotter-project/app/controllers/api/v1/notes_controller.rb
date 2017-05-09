@@ -16,7 +16,7 @@ class Api::V1::NotesController < ApplicationController
       render json: @note
     else
       puts "create error"
-    else
+    end
   end
 
   def update

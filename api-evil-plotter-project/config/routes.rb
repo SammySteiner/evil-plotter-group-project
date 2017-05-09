@@ -2,13 +2,14 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resource :boards, only: [:create, :show, :update, :delete]
-
+      resources :boards, only: [:create, :show, :update, :delete]
+      resources :notes, only: [:index, :create, :update, :delete]
       get '/users/:id/boards/', to: "boards#index"
-
-      resource :notes, only: [:index, :create, :update, :delete]
+      post '/users/', to: "users#create"
+      post '/sessions/', to: "sessions#create"
+      post '/sessions/:id', to: "sessions#update"
+      delete '/sessions/:id', to: "sessions#delete"
     end
   end
 
-  resource :users, only: [:create]
 end
