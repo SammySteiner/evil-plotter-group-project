@@ -1,9 +1,9 @@
-class BoardController < ApplicationController
-  before_action: set_board, only: [:show, :update, :delete]
+class Api::V1::BoardsController < ApplicationController
+  before_action :set_board, only: [:show, :update, :delete]
 
   def index
     # to "users/:id/boards" because of this filter by user
-    @boards = Board.all.where("user_id = ?", user.id)
+    @boards = Board.all # where("user_id = ?", user.id)
     render json: @boards
   end
 
