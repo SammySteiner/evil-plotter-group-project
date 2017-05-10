@@ -1,4 +1,4 @@
-class Note {
+class NotesController {
   constructor(title, content, top, left) {
     this.view = new NoteView()
     this.title = title

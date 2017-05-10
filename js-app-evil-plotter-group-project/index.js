@@ -1,6 +1,6 @@
 $(document).ready(function() {
  if (loggedIn()) {
-
+   
  } else {
    signup();
    login()
