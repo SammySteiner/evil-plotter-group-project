@@ -16115,3 +16115,9 @@ them to actual class references.  For example:
   "Rack::Cors" => Rack::Cors
 
  (called from <top (required)> at /Users/admin/flatiron/labs/js/project/evil-plotter-group-project/api-evil-plotter-project/config/environment.rb:5)
+DEPRECATION WARNING: Passing strings or symbols to the middleware builder is deprecated, please change
+them to actual class references.  For example:
+
+  "Rack::Cors" => Rack::Cors
+
+ (called from <top (required)> at /Users/admin/flatiron/labs/js/project/evil-plotter-group-project/api-evil-plotter-project/config/environment.rb:5)
