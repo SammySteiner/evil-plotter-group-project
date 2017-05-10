@@ -2,7 +2,7 @@
 
 body{
   background-color:#ecf0f1;
-  overflow:hidden;
+  overflow:scroll;
 }
 .topBar{
   z-index:1;
