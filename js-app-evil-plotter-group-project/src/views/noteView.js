@@ -1,6 +1,6 @@
 class NoteView {
   render(note) {
-    console.log(`5. render note ${note}`)
+  
     let i = 0
     return `<div class="row">
           <div id="postIt">
@@ -12,6 +12,5 @@ class NoteView {
         </div>
       </div>
     `
-    console.log("NotesController: Rendered note")
   }
 }
