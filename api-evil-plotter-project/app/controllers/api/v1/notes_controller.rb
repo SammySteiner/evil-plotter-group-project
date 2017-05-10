@@ -2,7 +2,6 @@ class Api::V1::NotesController < ApplicationController
   before_action :set_note, only: [:show, :update, :destroy]
 
   def index
-    binding.pry
     @notes = Note.all.where("board_id = ?", params[:id])
     render json: @notes
   end
