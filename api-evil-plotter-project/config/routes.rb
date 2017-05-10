@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :boards, only: [:create, :show, :update, :delete]
       resources :notes, only: [:index, :create, :update, :delete]
+      get '/users/:id/boards/:id/notes/', to: 'notes#index'
+      get '/users/:user_id/boards/:board_id/notes/:id', to: 'notes#show' 
 
     # Users Boards
       get '/users/:id/boards/', to: "boards#index"

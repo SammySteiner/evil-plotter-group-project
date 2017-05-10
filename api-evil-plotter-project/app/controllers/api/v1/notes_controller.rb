@@ -2,11 +2,12 @@ class Api::V1::NotesController < ApplicationController
   before_action :set_note, only: [:show, :update, :destroy]
 
   def index
-    @notes = Note.all
+    @notes = Note.all.where("board_id = ?", params[:id])
     render json: @notes
   end
 
   def show
+    @note = Note.all.where("board_id = ? and id = ?", params[:board_id], params[:id])
     render json: @note
   end
 
