@@ -5396,3 +5396,47 @@ Processing by Api::V1::UsersController#create as */*
 Completed 200 OK in 121ms (Views: 10.8ms | ActiveRecord: 16.4ms)
 
 
+Started POST "/api/v1/users" for ::1 at 2017-05-10 16:18:00 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "sammy"], ["password_digest", "$2a$10$mcWTUj78uoUnARWHVY1DHu8M/rfJ1dafS851iUHqiDjkd6mXXuRUK"], ["created_at", 2017-05-10 20:18:01 UTC], ["updated_at", 2017-05-10 20:18:01 UTC]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mBoard Load (1.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.42ms)
+Completed 200 OK in 210ms (Views: 34.4ms | ActiveRecord: 17.7ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2017-05-10 16:20:18 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "sammy"], ["password_digest", "$2a$10$4wjHnAzUGwNp3LDg7uSzgu60hb5h7eRckuzZqx4SfxqGmSGuHkzHK"], ["created_at", 2017-05-10 20:20:18 UTC], ["updated_at", 2017-05-10 20:20:18 UTC]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mBoard Load (1.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 103)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.57ms)
+Completed 200 OK in 119ms (Views: 2.4ms | ActiveRecord: 7.8ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2017-05-10 16:21:34 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"Sammy", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Sammy"], ["password_digest", "$2a$10$55XZ2q/h0DXwjGKfF3Ojnum2dFGRp8uCH1fYSSXMljMFfYJTg4/36"], ["created_at", 2017-05-10 20:21:34 UTC], ["updated_at", 2017-05-10 20:21:34 UTC]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 104)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.48ms)
+Completed 200 OK in 191ms (Views: 4.6ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-10 16:21:52 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (14.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (2.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.17ms)
+Completed 200 OK in 23ms (Views: 1.9ms | ActiveRecord: 16.7ms)
+
+

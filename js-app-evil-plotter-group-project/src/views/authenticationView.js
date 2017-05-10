@@ -1,5 +1,5 @@
 class AuthenticationView {
-  renderSignup() {
+  static renderSignup() {
     return `<h3>Sign up</h3>
       <div class="row">
       <form class="col s12" id="signup-form">
@@ -30,7 +30,7 @@ class AuthenticationView {
     </div>`
   }
 
-  renderLogin() {
+  static renderLogin() {
     return `<h3>Log In</h3>
       <div class="row">
       <form class="col s12" id="login-form">
