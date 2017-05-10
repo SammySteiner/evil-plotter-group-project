@@ -8,6 +8,7 @@
 
 require 'faker'
 
+
 puts "Begin creating users with names, passwords, and password confirmations\n"
 
 i = 0
