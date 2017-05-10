@@ -8,7 +8,7 @@ class NotesController {
         $('div#noteContainer').append(view.render(note))
         $(function(){
           $("div#postIt").draggable({
-            handle: '.topBar',
+            handle: '.topBar'
           })
         })
       })
