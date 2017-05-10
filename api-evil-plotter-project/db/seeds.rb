@@ -30,9 +30,17 @@ i2 = 0
   new_board.save
   i3 = 0
   (Random.new.rand(1..3)).times do
-     new_note = Note.create(title: Faker::GameOfThrones.house, content: Faker::ChuckNorris.fact, user_id: random_number)
+     left = Random.new.rand(0..1600)
+     right = Random.new.rand(0..900)
+     new_note = Note.create(
+      title: Faker::GameOfThrones.house,
+      content: Faker::ChuckNorris.fact,
+      user_id: random_number,
+      left: left,
+      top: right
+    )
      new_board.notes << new_note
-     puts "=> NEW NOTE #{i3 += 1}: #{new_note.user.name} titled '#{new_note.title}'!"
+     puts "=> NEW NOTE #{i3 += 1}: #{new_note.user.name} titled '#{new_note.title} at X:#{left} Y:#{right}'!"
   end
 end
 
