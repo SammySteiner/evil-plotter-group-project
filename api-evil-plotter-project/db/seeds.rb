@@ -8,13 +8,13 @@
 
 require 'faker'
 
-# 100.times do
-#   name = Faker::Name.name
-#   new_user = User.new(name: name, password: "123", password_confirmation: "123")
-#   new_user.save
-#   puts new_user.errors.messages
-#   puts new_user
-# end
+100.times do
+  name = Faker::Name.name
+  new_user = User.new(name: name, password: "123", password_confirmation: "123")
+  new_user.save
+  puts new_user.errors.messages
+  puts new_user
+end
 
 300.times do
   title = Faker::Pokemon.name
