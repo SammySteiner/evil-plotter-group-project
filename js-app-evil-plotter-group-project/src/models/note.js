@@ -1,9 +1,11 @@
 class Note {
-  constructor(title, content, top, left) {
+  constructor(title, content, top, left, height, width) {
     this.title = title
     this.content = content
     this.top = top
     this.left = left
+    this.height = height
+    this.width = width
   }
 
   getOneNote() {
