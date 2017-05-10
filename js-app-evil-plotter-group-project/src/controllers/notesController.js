@@ -1,27 +1,25 @@
 class NotesController {
-  constructor(title, content, top, left) {
-    this.view = new NoteView()
-    this.title = title
-    this.content = content
-    this.top = top
-    this.left = left
-    this.show()
-  }
 
-  show (){
-    getAllBoardNotes().then((data) => {
+  show(){
+    const view = new NoteView()
+    console.log("begin show")
+    console.log(`1. Note.all(): ${Note.all()}`)
+    Note.all().then((data) => {
+      console.log(`2. data: ${data}`)
       data.forEach((note) => {
-        this.view.render(this.note)
+        console.log(`3. note: ${note}`)
+        console.log(`4. render: ${view.render(note)}`)
+        $('div#noteContainer').append(view.render(note))
+        $(function(){
+          $("div#postIt").draggable({
+            handle: '.topBar',
+          })
+          console.log("NoteView: Set draggable event")
+        })
+        console.log("NotesController-show: Note Rendered")
       })
     })
   }
 
-  create () {}
+  create() {}
 }
-
-// .css({top: self.top, left: self.left, position:'absolute'})
-
-  //   // change DB to top and left
-  //   // find out x and y range
-  //   // add positions to seed file
-  // })

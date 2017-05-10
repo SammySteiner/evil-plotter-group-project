@@ -31,9 +31,3 @@ body{
 .textAria:focus{
   outline: 0;
 }
-
-/*ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
-.sortable { float: left; width: 150px; min-height: 50px; padding: 0.5em; float: left; margin: 8px 10px 8px 20px; cursor: hand; cursor: pointer; border: 1px dotted red; }
-.trash-can { float: left; width: 100px; min-height: 100px; padding: 0.5em; float: right; margin: 8px 10px 8px 20px; cursor: hand; cursor: pointer; border: 1px dotted red; }
-.droppable { float: left; width: 150px; height: 150px; padding: 0.5em; float: left; }
-.draggable { width: 100px; height: 50px; padding: 0.5em; margin: 8px 10px 8px 20px; cursor: hand; cursor: pointer; border: 1px solid #000; }*/

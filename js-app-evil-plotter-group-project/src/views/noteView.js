@@ -1,20 +1,17 @@
 class NoteView {
   render(note) {
-    $('div#noteContainer').append(`
-      <div class="row">
+    console.log(`5. render note ${note}`)
+    let i = 0
+    return `<div class="row">
           <div id="postIt">
           <div class=topBar >
-            <h5 class="center-align vertical-align">${note[0].title.toUpperCase()}</h5></div>
+            <h5 class="center-align vertical-align">${note.title.toUpperCase()}</h5></div>
           <div class=form>
-            <div contenteditable class=textAria id="note">${note[0].content}</div>
+            <div contenteditable class=textAria id="note">${note.content}</div>
           </div>
         </div>
       </div>
-    `)
-    $(function(){
-      $("div.postIt").draggable({
-        handle: '.topBar',
-      })
-    })
+    `
+    console.log("NotesController: Rendered note")
   }
 }

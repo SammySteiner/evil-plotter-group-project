@@ -1,6 +1,9 @@
 $(document).ready(function() {
+  const controller = new NotesController()
+  controller.show()
+
  if (loggedIn()) {
-   
+
  } else {
    signup();
    login()
