@@ -16109,3 +16109,9 @@ Processing by Api::V1::BoardsController#index as */*
 Completed 200 OK in 36ms (Views: 19.2ms | ActiveRecord: 7.7ms)
 
 
+DEPRECATION WARNING: Passing strings or symbols to the middleware builder is deprecated, please change
+them to actual class references.  For example:
+
+  "Rack::Cors" => Rack::Cors
+
+ (called from <top (required)> at /Users/admin/flatiron/labs/js/project/evil-plotter-group-project/api-evil-plotter-project/config/environment.rb:5)
