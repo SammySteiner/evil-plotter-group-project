@@ -12,9 +12,6 @@ class NotesController {
     getAllBoardNotes().then((data) => {
       data.forEach((note) => {
         this.view.render(this.note)
-        $(function(){
-          $("div.postIt").draggable({handle: '.topBar'})
-        })
       })
     })
   }

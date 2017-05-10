@@ -8,25 +8,15 @@ class Note {
     this.width = width
   }
 
-  getOneNote() {
-    return $.ajax ({ // stubbed out generate card from ajax request to API site
-      url: `http://localhost:3000/api/v1/users/1/boards/1/notes/1`
-    })
-  }
+  // getOneNote() {
+  //   return $.ajax ({ // stubbed out generate card from ajax request to API site
+  //     url: `http://localhost:3000/api/v1/users/1/boards/1/notes/1`
+  //   })
+  // }
 
   static getAllBoardNotes() {
     return $.ajax ({ // stubbed out generate card from ajax request to API site
       url: `http://localhost:3000/api/v1/users/1/boards/4/notes/`
-    })
-  }
-
-
-      })
-      $(function(){
-        $("div.postIt").draggable({
-          handle: '.topBar',
-        })
-      })
     })
   }
 

@@ -11,5 +11,10 @@ class NoteView {
         </div>
       </div>
     `)
+    $(function(){
+      $("div.postIt").draggable({
+        handle: '.topBar',
+      })
+    })
   }
 }
