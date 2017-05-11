@@ -2,14 +2,12 @@ class AuthenticationController {
   constructor() {
     const boardController = new BoardsController()
 
-    this.signup()
-    this.login()
+    this.auth()
     $('body').on('submit', '#signup-form' ,function(e){
       e.preventDefault()
       Authentication.signup().then(function(data) {
         sessionStorage.setItem("user_id", `${data.user_id}`)
-        $('#signup').html('')
-        $('#login').html('')
+        $('#auth').html('')
         boardController.show()
        //  add board data to a div on the html page with an id of boards.
       })
@@ -18,8 +16,7 @@ class AuthenticationController {
       e.preventDefault()
       Authentication.login().then(function(data) {
       sessionStorage.setItem("user_id", `${data.user_id}`)
-     $('#login').html('')
-     $('#signup').html('')
+     $('#auth').html('')
      boardController.show()
      //  add board data to a div on the html page with an id of boards.
     })
@@ -27,12 +24,8 @@ class AuthenticationController {
   }
 
 
-  signup() {
-    $('#signup').html(AuthenticationView.renderSignup())
-  }
-
-  login() {
-    $('#login').html(AuthenticationView.renderLogin())
+  auth() {
+    $('#auth').html(AuthenticationView.renderAuth())
   }
 
   static logout() {
