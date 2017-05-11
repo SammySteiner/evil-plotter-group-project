@@ -31,4 +31,13 @@ class AuthenticationController {
     $('#login').html(AuthenticationView.renderLogin())
   }
 
+  static logout() {
+    $('body').on('click', '#logout', function(e){
+      e.preventDefault()
+      sessionStorage.setItem("user_id", '')
+      new AuthenticationController()
+      $('#noteContainer').html('')
+    })
+  }
+
 }
