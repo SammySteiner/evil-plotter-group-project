@@ -14,14 +14,11 @@ class BoardsController{
 
       })
     })
-    $('body').on('click', '#newBoard', function(e){
+    $('body').on('click.newBoard', '#newBoard', function(e){
       BoardsController.newBoard()
     })
     $('body').on('submit', '#board-form', function(e){
       e.preventDefault()
-      // this is to fix
-      this.click(null);
-      //AJAX call to make new board
       const title = $("#new-board-content").val()
       const user_id = sessionStorage.user_id
       console.log('Hi')
@@ -36,6 +33,7 @@ class BoardsController{
       }).then( function(data){
         console.log(data)
         $("#boardContainer").html('')
+        $("#noteContainer").html('')
         const notesController = new NotesController()
         notesController.show()
 
@@ -46,8 +44,8 @@ class BoardsController{
 
   show(){
       const view = new BoardView()
-      Board.all().then((boards) => {
-          $("#boardContainer").append(view.renderBoards(boards))
+      Board.allBoards().then((boards) => {
+          $("#boardContainer").html(view.renderBoards(boards))
       })
 
     }
