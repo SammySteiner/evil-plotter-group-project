@@ -5,11 +5,12 @@ Rails.application.routes.draw do
       resources :boards, only: [:create, :show, :update, :delete]
       resources :notes, only: [:index, :create, :update, :delete]
       get '/users/:id/boards/:id/notes/', to: 'notes#index'
-      get '/users/:user_id/boards/:board_id/notes/:id', to: 'notes#show' 
+      get '/users/:user_id/boards/:board_id/notes/:id', to: 'notes#show'
 
     # Users Boards
       get '/users/:id/boards/', to: "boards#index"
       get '/users/:user_id/boards/:board_id', to: "boards#show"
+      post '/users/:user_id/boards', to: "boards#create"
       post '/users/', to: "users#create"
       post '/sessions/', to: "sessions#create"
       post '/sessions/:id', to: "sessions#update"

@@ -16,7 +16,9 @@ i = 0
   name = Faker::Name.name
   new_user = User.new(name: name, password: "123", password_confirmation: "123")
   new_user.save
+
   puts "NEW USER #{i += 1}: Added #{new_user.name} to the database."
+
 end
 
 puts "Begin adding boards and notes to users\n"
