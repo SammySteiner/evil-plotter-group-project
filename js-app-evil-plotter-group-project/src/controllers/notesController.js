@@ -12,6 +12,7 @@ class NotesController {
           })
         })
       })
+      $('#boardContainer').html('')
     })
   }
 

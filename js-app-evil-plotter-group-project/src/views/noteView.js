@@ -1,6 +1,6 @@
 class NoteView {
   render(note) {
-  
+
     let i = 0
     return `<div class="row">
           <div id="postIt">

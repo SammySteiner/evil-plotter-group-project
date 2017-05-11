@@ -20,7 +20,7 @@
           <div class="nav-wrapper orange">
             <a href="#" class="brand-logo" style="margin-left:20px;">Evil Plotter</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-              <li><a href="#">Create New Board</a></li>
+              <li><a href="#" id="newBoard">Create New Board</a></li>
               <li><a href="#">View Boards</a></li>
             </ul>
           </div>
@@ -34,6 +34,12 @@
     <div id="login"></div>
   </div>
 
+  <!-- Board -->
+
+    <div id="boardContainer"></div>
+
+  <!-- End  Board -->
+
 
   <!-- Note -->
 
@@ -46,11 +52,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
   <script src="index.js"></script>
   <script src="src/models/note.js"></script>
+  <script src="src/models/board.js"></script>
   <script src="src/controllers/notesController.js"></script>
   <script src="src/views/noteView.js"></script>
+  <script src="src/views/boardView.js"></script>
   <script src="src/models/authentication.js"></script>
   <script src="src/views/authenticationView.js"></script>
   <script src="src/controllers/authenticationController.js"></script>
+  <script src="src/controllers/boardsController.js"></script>
+
 
 
 
