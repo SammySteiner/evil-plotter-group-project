@@ -16,8 +16,9 @@ class Board {
 
 
     static allBoards(){
+      const user_id = sessionStorage.user_id
       return $.ajax ({ // stubbed out generate card from ajax request to API site
-        url: `http://localhost:3000/api/v1/users/1/boards/`
+        url: `http://localhost:3000/api/v1/users/${user_id}/boards/`
       })
     }
   }
