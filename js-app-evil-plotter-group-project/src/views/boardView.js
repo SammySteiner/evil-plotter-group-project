@@ -15,8 +15,10 @@ class BoardView{
     `
   }
   renderNewForm(){
-    return `<input type="text-field" id="new-board-content"></input>
-            <input type="submit" id="save-board">`
+    return `<form id="board-form">
+            <input type="text-field" id="new-board-content"></input>
+            <input type="submit" id="save-board">
+            </form>`
   }
   renderEventListeners(){
     return `$( "#board-65" ).click(function() {

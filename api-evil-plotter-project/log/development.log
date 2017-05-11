@@ -9389,3 +9389,544 @@ app/controllers/api/v1/boards_controller.rb:18:in `create'
   Rendered /Users/admin/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
   Rendered /Users/admin/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (101.5ms)
   Rendered /Users/admin/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (124.0ms)
+Started POST "/api/v1/users" for ::1 at 2017-05-11 11:22:11 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test"], ["password_digest", "$2a$10$..hvUUPy3Gx/Z4GgnAeZdejuZMIHtve68ey37N10IaPx9GzlOdzWy"], ["created_at", 2017-05-11 15:22:12 UTC], ["updated_at", 2017-05-11 15:22:12 UTC]]
+  [1m[35m (4.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mBoard Load (1.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 105)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.44ms)
+Completed 200 OK in 209ms (Views: 36.2ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:22:18 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (9.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.0ms)
+Completed 200 OK in 52ms (Views: 32.8ms | ActiveRecord: 18.3ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:22:31 -0400
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:22:31 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"title"=>"test", "user_id"=>"105"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: board):
+  
+app/controllers/api/v1/boards_controller.rb:47:in `board_params'
+app/controllers/api/v1/boards_controller.rb:18:in `create'
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"title"=>"test", "user_id"=>"105"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: board):
+  
+app/controllers/api/v1/boards_controller.rb:47:in `board_params'
+app/controllers/api/v1/boards_controller.rb:18:in `create'
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.0ms)
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (317.1ms)
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (262.1ms)
+Started GET "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:22:57 -0400
+Processing by Api::V1::BoardsController#index as HTML
+  Parameters: {"id"=>"105"}
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '105')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:24:00 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.59ms)
+Completed 200 OK in 5ms (Views: 2.8ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:25:36 -0400
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:25:36 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"title"=>"asdfas", "user_id"=>"105"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: board):
+  
+app/controllers/api/v1/boards_controller.rb:47:in `board_params'
+app/controllers/api/v1/boards_controller.rb:18:in `create'
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"title"=>"asdfas", "user_id"=>"105"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: board):
+  
+app/controllers/api/v1/boards_controller.rb:47:in `board_params'
+app/controllers/api/v1/boards_controller.rb:18:in `create'
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.1ms)
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:25:37 -0400
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.6ms)
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (5.2ms)
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (512.3ms)
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.5ms)
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/actionpack-5.0.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (314.9ms)
+  [1m[36mBoard Load (44.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.6ms)
+Completed 200 OK in 54ms (Views: 8.8ms | ActiveRecord: 44.3ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:25:46 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"sdfasdfsa"}, "user_id"=>"105"}
+  [1m[35m (4.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+No template found for Api::V1::BoardsController#create, rendering head :no_content
+Completed 204 No Content in 1243ms (ActiveRecord: 4.6ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:25:53 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"sdfasdfsa"}, "user_id"=>"105"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+No template found for Api::V1::BoardsController#create, rendering head :no_content
+Completed 204 No Content in 280ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:26:49 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (135.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.75ms)
+Completed 200 OK in 177ms (Views: 17.8ms | ActiveRecord: 139.2ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:26:57 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfsdaf"}, "user_id"=>"105"}
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+No template found for Api::V1::BoardsController#create, rendering head :no_content
+Completed 204 No Content in 430ms (ActiveRecord: 0.7ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:26:58 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfsdaf"}, "user_id"=>"105"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+No template found for Api::V1::BoardsController#create, rendering head :no_content
+Completed 204 No Content in 321ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:27:40 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.66ms)
+Completed 200 OK in 147ms (Views: 21.3ms | ActiveRecord: 13.3ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:28:15 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.25ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:29:06 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:30:27 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 5ms (Views: 2.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:30:35 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasdf"}, "user_id"=>"105"}
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:33:26 -0400
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.3ms)[0m  [1m[31mROLLBACK[0m
+No template found for Api::V1::BoardsController#create, rendering head :no_content
+Completed 204 No Content in 266502ms (ActiveRecord: 14.7ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:35:02 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasdf"}, "user_id"=>"105"}
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:35:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (4.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.05ms)
+Completed 200 OK in 88ms (Views: 39.3ms | ActiveRecord: 13.1ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:35:23 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asfasdfsd", "user_id"=>"105"}, "user_id"=>"105"}
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:35:24 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asfasdfsd", "user_id"=>"105"}, "user_id"=>"105"}
+Completed   in 23552ms (ActiveRecord: 0.0ms)
+
+
+Completed   in 21702ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:36:02 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (7.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.48ms)
+Completed 200 OK in 434ms (Views: 363.8ms | ActiveRecord: 18.6ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:36:10 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasdf", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "asdfasdf"], ["created_at", 2017-05-11 15:36:14 UTC], ["updated_at", 2017-05-11 15:36:14 UTC], ["user_id", 105]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.39ms)
+Completed 200 OK in 3923ms (Views: 1.8ms | ActiveRecord: 22.5ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:36:27 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasdf", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:38:08 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (6.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.11ms)
+Completed 200 OK in 12ms (Views: 5.0ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:38:17 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasf", "user_id"=>"105"}, "user_id"=>"105"}
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:38:21 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasf", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (18.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "asdfasf"], ["created_at", 2017-05-11 15:38:24 UTC], ["updated_at", 2017-05-11 15:38:24 UTC], ["user_id", 105]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 3147ms (Views: 1.5ms | ActiveRecord: 28.4ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:38:47 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasf", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (4.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "asdfasf"], ["created_at", 2017-05-11 15:38:51 UTC], ["updated_at", 2017-05-11 15:38:51 UTC], ["user_id", 105]]
+  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.27ms)
+Completed 200 OK in 3899ms (Views: 6.9ms | ActiveRecord: 9.4ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:38:54 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasf", "user_id"=>"105"}, "user_id"=>"105"}
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:40:46 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (157.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 162ms (Views: 3.4ms | ActiveRecord: 157.5ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:41:25 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"Hello", "user_id"=>"105"}, "user_id"=>"105"}
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:41:27 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"Hello", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (20.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Hello"], ["created_at", 2017-05-11 15:42:51 UTC], ["updated_at", 2017-05-11 15:42:51 UTC], ["user_id", 105]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.21ms)
+Completed 200 OK in 84196ms (Views: 1.1ms | ActiveRecord: 28.7ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:42:51 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.29ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:42:51 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.6ms)
+Completed 200 OK in 5ms (Views: 2.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:42:51 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:43:07 -0400
+Completed   in 265627ms (ActiveRecord: 0.0ms)
+
+
+Completed   in 303525ms (ActiveRecord: 0.0ms)
+
+
+Completed   in 114757ms (ActiveRecord: 0.0ms)
+
+
+Completed   in 413033ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:43:36 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.49ms)
+Completed 200 OK in 101ms (Views: 48.5ms | ActiveRecord: 14.4ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:43:53 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"Hello", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Hello"], ["created_at", 2017-05-11 15:43:53 UTC], ["updated_at", 2017-05-11 15:43:53 UTC], ["user_id", 105]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 85ms (Views: 1.2ms | ActiveRecord: 32.9ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:43:54 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"Hello", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (17.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Hello"], ["created_at", 2017-05-11 15:43:54 UTC], ["updated_at", 2017-05-11 15:43:54 UTC], ["user_id", 105]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.22ms)
+Completed 200 OK in 30ms (Views: 1.0ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:44:32 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.85ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:44:36 -0400
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:44:36 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"Hello", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Hello"], ["created_at", 2017-05-11 15:44:36 UTC], ["updated_at", 2017-05-11 15:44:36 UTC], ["user_id", 105]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 13ms (Views: 1.1ms | ActiveRecord: 7.1ms)
+
+
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"Hello", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "Hello"], ["created_at", 2017-05-11 15:44:36 UTC], ["updated_at", 2017-05-11 15:44:36 UTC], ["user_id", 105]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 10ms (Views: 1.0ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:46:23 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (6.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.59ms)
+Completed 200 OK in 10ms (Views: 2.9ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:48:10 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (2.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:48:36 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (13.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 17ms (Views: 2.5ms | ActiveRecord: 13.8ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 11:51:02 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"test", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "test"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 105)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.32ms)
+Completed 200 OK in 56ms (Views: 44.2ms | ActiveRecord: 8.5ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:51:07 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (7.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 12ms (Views: 2.9ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:53:29 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (8.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.05ms)
+Completed 200 OK in 12ms (Views: 3.3ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:53:44 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.92ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:54:09 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.93ms)
+Completed 200 OK in 5ms (Views: 3.1ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:54:15 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfasdf", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "asdfasdf"], ["created_at", 2017-05-11 15:54:15 UTC], ["updated_at", 2017-05-11 15:54:15 UTC], ["user_id", 105]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.23ms)
+Completed 200 OK in 16ms (Views: 1.4ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:55:45 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.97ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:55:52 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"asdfdsa", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (5.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "asdfdsa"], ["created_at", 2017-05-11 15:55:52 UTC], ["updated_at", 2017-05-11 15:55:52 UTC], ["user_id", 105]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.37ms)
+Completed 200 OK in 21ms (Views: 1.4ms | ActiveRecord: 12.4ms)
+
+
+Started GET "/api/v1/users/105/boards/4/notes/" for ::1 at 2017-05-11 11:55:52 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (9.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.3ms)
+Completed 200 OK in 60ms (Views: 27.3ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:57:47 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.0ms)
+Completed 200 OK in 6ms (Views: 3.4ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/api/v1/users/105/boards/" for ::1 at 2017-05-11 11:57:51 -0400
+Processing by Api::V1::BoardsController#create as */*
+  Parameters: {"board"=>{"title"=>"afdasf", "user_id"=>"105"}, "user_id"=>"105"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 105], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "boards" ("title", "created_at", "updated_at", "user_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["title", "afdasf"], ["created_at", 2017-05-11 15:57:51 UTC], ["updated_at", 2017-05-11 15:57:51 UTC], ["user_id", 105]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BoardSerializer with ActiveModelSerializers::Adapter::Attributes (0.25ms)
+Completed 200 OK in 15ms (Views: 1.0ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/api/v1/users/105/boards/4/notes/" for ::1 at 2017-05-11 11:57:51 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (1.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.74ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 1.1ms)
+
+
