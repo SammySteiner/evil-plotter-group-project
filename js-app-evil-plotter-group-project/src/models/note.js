@@ -15,6 +15,10 @@ class Note {
     })
   }
 
+  static newNote() {
+    
+  }
+
   static create() {
 
   }
