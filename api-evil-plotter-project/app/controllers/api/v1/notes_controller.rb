@@ -37,7 +37,7 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:title, :content, :x, :y, :height, :width)
+    params.require(:note).permit(:title, :content, :left, :top, :height, :width)
   end
 
 end

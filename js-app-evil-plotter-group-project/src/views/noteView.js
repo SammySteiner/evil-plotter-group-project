@@ -1,17 +1,13 @@
 class NoteView {
   render(note) {
-
-    let i = 0
-    return `
-        <div class="row">
-          <div id="postIt" class="resizeable">
-          <div class=topBar >
-            <h5 class="center-align vertical-align">${note.title.toUpperCase()}</h5></div>
+    return `<div class="row">
+          <div class="postIt" style="position: relative; left: ${note.left}px; top: ${note.top}px">
+          <div class="topBar" id="title-${note.id}">
+            <h6 class="center-align vertical-align">${note.title.toUpperCase()}</h6></div>
           <div class=form>
-            <div contenteditable class=textAria id="note">${note.content}</div>
+            <div contenteditable class=textAria id="content-${note.id}">${note.content}</div>
           </div>
         </div>
-      </div>
-    `
+      </div>`
   }
 }
