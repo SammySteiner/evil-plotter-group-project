@@ -24,7 +24,6 @@ class NotesController {
         })
 
       })
-      $('#boardContainer').html('')
     })
 
   }

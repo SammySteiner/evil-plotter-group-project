@@ -10,4 +10,6 @@ class NoteView {
         </div>
       </div>`
   }
+
+
 }

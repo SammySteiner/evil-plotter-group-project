@@ -6,9 +6,13 @@ class BoardsController{
     console.log("Boards Controller instantiated")
     $('body').on('click', '.board', function(e){
       const user_id = sessionStorage.user_id
+      const board_id = this.id.replace(/\D/g,'')
+      const board_title = $(this)[0].textContent
       $.ajax ({ // stubbed out generate card from ajax request to API site
-        url: `http://localhost:3000/api/v1/users/${user_id}/boards/1/notes`
+        url: `http://localhost:3000/api/v1/users/${user_id}/boards/${board_id}/notes`
       }).then(function(data){
+        const html = `<h1>${board_title}</h1>`
+        $("#boardContainer").html(html)
         const notesController = new NotesController()
         notesController.show()
 
@@ -37,7 +41,9 @@ class BoardsController{
         }
       }).then( function(data){
         console.log(data)
-        $("#boardContainer").html('')
+        const title = data.title
+        const html = `<h1>${title}</h1>`
+        $("#boardContainer").html(html)
         $("#noteContainer").html('')
         const notesController = new NotesController()
         notesController.show()

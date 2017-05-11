@@ -4,9 +4,7 @@
 $(document).ready(function() {
 
  if (!!sessionStorage.user_id) {
-
-   const controller = new NotesController()
-   controller.create()
+   const controller = new BoardsController()
    controller.show()
    AuthenticationController.logout()
  } else {
