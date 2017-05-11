@@ -2,6 +2,9 @@
 
 body{
   background-color:#ecf0f1;
+  background-image: url("../images/wood.jpg");
+  background-size: 120%;
+  background-position: right top;
   overflow:scroll;
 }
 .topBar{

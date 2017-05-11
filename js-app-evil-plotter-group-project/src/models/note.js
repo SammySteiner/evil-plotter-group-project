@@ -1,5 +1,6 @@
 class Note {
-  constructor(title, content, top, left, height, width) {
+  constructor(id, title, content, top, left, height, width) {
+    this.id = id
     this.title = title
     this.content = content
     this.top = top
@@ -18,7 +19,8 @@ class Note {
 
   }
 
-  static update(title, content, top, left, height, width) {
+  static update(id, title, content, top, left, height, width) {
+    this.id = id
     this.title = title
     this.content = content
     this.top = top
@@ -27,10 +29,10 @@ class Note {
     this.width = width
   }
 
-  static post() {
+  static post(user_id, board_id) {
     return $.ajax ({
-      // url: `http://localhost:3000/api/v1/users/${user_id}/boards/${board_id}/notes/`,
-      url: `http://localhost:3000/api/v1/users/1/boards/4/notes/`,
+      url: `http://localhost:3000/api/v1/users/${user_id}/boards/${board_id}/notes/`,
+      // url: `http://localhost:3000/api/v1/users/1/boards/4/notes/`,
       type: 'POST'
     })
   }

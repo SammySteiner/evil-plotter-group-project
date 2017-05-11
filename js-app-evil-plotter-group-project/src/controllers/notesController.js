@@ -12,14 +12,15 @@ class NotesController {
         })
 
         $('div.topBar').on ('mouseup', function(event) {
+          const id = $('div.topBar')[0].id.replace(/\D/g,'')
           const title = event.target.outerText
           const content = $.trim(event.target.parentElement.parentElement.lastElementChild.textContent)
           const top = $(this).offset().top
           const left = $(this).offset().left
           const height = "200px"
           const width = "200px"
-          Note.update(title, content, top, left, height, width)
-          console.log(`updated object title: ${title}, content: ${content}, top: ${top}px, left:${left}px, height: ${height}, width: ${width}`)
+          Note.update(id, title, content, top, left, height, width)
+          console.log(`updated object title: id: ${id}, ${title}, content: ${content}, top: ${top}px, left:${left}px, height: ${height}, width: ${width}`)
         })
 
       })
@@ -31,7 +32,11 @@ class NotesController {
     $('a#newNote').on('click', function(){
       // add to new board object
       // const board =  Board.all.find()
-      board.addNote('', 'type your note here', '293px', '480px', '', '')
+      Note.all().then(function(data) {
+        data.forEach(function(note) {
+          board.addNote('', 'type your note here', '293px', '480px', '', '')
+        })
+      })
       $('div#noteContainer').html(board.notes)
     })
   }
