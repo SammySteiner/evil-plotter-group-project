@@ -1,6 +1,10 @@
+
+
+
 $(document).ready(function() {
 
  if (!!sessionStorage.user_id) {
+
    const controller = new NotesController()
    controller.create()
    controller.show()
@@ -9,5 +13,8 @@ $(document).ready(function() {
    new AuthenticationController()
    AuthenticationController.logout()
  }
+
+
+
 
 })
