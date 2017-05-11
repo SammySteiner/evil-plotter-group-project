@@ -9151,3 +9151,100 @@ Processing by Api::V1::BoardsController#index as */*
 Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.6ms)
 
 
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 11:05:34 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"test", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "test"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.02ms)
+Completed 200 OK in 60ms (Views: 19.7ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:05:36 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (1.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.72ms)
+Completed 200 OK in 28ms (Views: 21.1ms | ActiveRecord: 6.2ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:07:34 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.66ms)
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 11:07:48 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"1", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "1"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 7ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2017-05-11 11:07:48 -0400
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"internal"=>true}
+  Rendering /Users/admin/.rvm/gems/ruby-2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/admin/.rvm/gems/ruby-2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (4.6ms)
+Completed 200 OK in 50ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2017-05-11 11:07:53 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Parameters: {"internal"=>true}
+  Rendering /Users/admin/.rvm/gems/ruby-2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/admin/.rvm/gems/ruby-2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (3.7ms)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:07:56 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.57ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2017-05-11 11:08:29 -0400
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user"=>{"name"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (4.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test"], ["password_digest", "$2a$10$wqs13zq9V/ars4/urlyvCu6SeG8WO8DnVPeJgx/mhlf5n8jQ9kJPm"], ["created_at", 2017-05-11 15:08:29 UTC], ["updated_at", 2017-05-11 15:08:29 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 103)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.82ms)
+Completed 200 OK in 84ms (Views: 1.0ms | ActiveRecord: 5.5ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:09:00 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.79ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 11:09:15 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"test", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "test"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.77ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/users/1/boards/" for ::1 at 2017-05-11 11:09:15 -0400
+Processing by Api::V1::BoardsController#index as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = '1')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.69ms)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.5ms)
+
+
