@@ -5,9 +5,9 @@ class BoardsController{
   constructor(){
 
     $('body').on('click', '.board', function(e){
-
+      const user_id = sessionStorage.user_id
       $.ajax ({ // stubbed out generate card from ajax request to API site
-        url: `http://localhost:3000/api/v1/users/1/boards/1/notes`
+        url: `http://localhost:3000/api/v1/users/${user_id}/boards/1/notes`
       }).then(function(data){
         const notesController = new NotesController()
         notesController.show()
@@ -21,7 +21,19 @@ class BoardsController{
     $('body').on('click', '#save-board', function(e){
       e.preventDefault()
       //AJAX call to make new board
-      alert($("#new-board-content").val())
+      const title = $("#new-board-content").val()
+      const user_id = sessionStorage.user_id
+      $.ajax({
+        method: "POST",
+        //TODO need to interpolate user id **DONE**
+        url: `http://localhost:3000/api/v1/users/${user_id}/boards/`,
+        data: {
+          title: title
+        }
+      }).then( function(data){
+        console.log(data)
+
+      })
 
     })
   }
