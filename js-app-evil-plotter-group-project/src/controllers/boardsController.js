@@ -14,6 +14,11 @@ class BoardsController{
 
       })
     })
+    $('body').on('click.deleteBoard', '.delete-board', function(e){
+      const user_id = sessionStorage.user_id
+      const board_id = this.id.replace(/\D/g,'')
+      BoardsController.deleteBoard(user_id, board_id)
+    })
     $('body').on('click.newBoard', '#newBoard', function(e){
       BoardsController.newBoard()
     })
@@ -42,7 +47,7 @@ class BoardsController{
     })
   }
 
-  show(){
+   show(){
       const view = new BoardView()
       Board.allBoards().then((boards) => {
           $("#boardContainer").html(view.renderBoards(boards))
@@ -62,7 +67,17 @@ class BoardsController{
     }
 
 
-    delete(){
+    static deleteBoard(user_id, board_id){
+       $.ajax({
+        type: 'DELETE',
+        url: `http://localhost:3000/api/v1/users/${user_id}/boards/${board_id}`
+      }).then(function(){
+        const view = new BoardView()
+        Board.allBoards().then((boards) => {
+            $("#boardContainer").html(view.renderBoards(boards))
+        })
+      })
+
       //add an x box and on click destroy the board with corresponding id
     }
 

@@ -2,16 +2,21 @@ class Api::V1::NotesController < ApplicationController
   before_action :set_note, only: [:show, :update, :destroy]
 
   def index
+    puts "notes inded"
     @notes = Note.all.where("board_id = ?", params[:id])
     render json: @notes
   end
 
   def show
+    puts "notes show"
+
     @note = Note.all.where("board_id = ? and id = ?", params[:board_id], params[:id])
     render json: @note
   end
 
   def create
+    puts "notes create"
+
     @note = Note.new(note_params)
     if @note.save
       render json: @note
@@ -21,6 +26,8 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def update
+    puts "notes update"
+
     @note.update(note_params)
     puts "update note successful"
   end
