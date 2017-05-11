@@ -5847,3 +5847,234 @@ Completed 200 OK in 23ms (Views: 1.9ms | ActiveRecord: 16.7ms)
 >>>>>>> signup
 
 
+Started POST "/api/v1/sessions" for ::1 at 2017-05-10 16:35:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (3.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (28.22ms)
+Completed 200 OK in 154ms (Views: 49.2ms | ActiveRecord: 38.0ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-10 16:42:58 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (1.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (6.04ms)
+Completed 200 OK in 167ms (Views: 50.0ms | ActiveRecord: 15.2ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-10 16:43:07 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (6.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.32ms)
+Completed 200 OK in 143ms (Views: 54.8ms | ActiveRecord: 74.3ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-10 16:43:20 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (31.6ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.51ms)
+Completed 200 OK in 39ms (Views: 6.8ms | ActiveRecord: 31.6ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-10 17:09:32 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (1.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.83ms)
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-10 17:48:15 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (1.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.0ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-10 17:52:07 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (9.5ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.72ms)
+Completed 200 OK in 17ms (Views: 5.8ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-10 18:15:20 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (7.2ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.06ms)
+Completed 200 OK in 13ms (Views: 5.1ms | ActiveRecord: 7.2ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-10 18:16:23 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (10.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (6.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (7.92ms)
+Completed 200 OK in 22ms (Views: 1.8ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-10 18:16:29 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (1.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.67ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-10 18:16:37 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (1.0ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.45ms)
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 10:15:09 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (1.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.21ms)
+Completed 200 OK in 335ms (Views: 146.0ms | ActiveRecord: 21.9ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 10:16:00 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"test", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (4.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "test"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 18ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/" for ::1 at 2017-05-11 10:16:01 -0400
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"internal"=>true}
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (15.3ms)
+Completed 200 OK in 191ms (Views: 111.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-11 10:16:22 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (2.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.31ms)
+Completed 200 OK in 143ms (Views: 109.9ms | ActiveRecord: 18.9ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 10:16:53 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (12.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (1.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.79ms)
+Completed 200 OK in 19ms (Views: 1.6ms | ActiveRecord: 14.6ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-11 10:17:00 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (7.3ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.54ms)
+Completed 200 OK in 14ms (Views: 5.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-11 10:17:12 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (3.8ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.02ms)
+Completed 200 OK in 11ms (Views: 5.8ms | ActiveRecord: 3.8ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 10:17:25 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"asfasdfjas;dfj", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "asfasdfjas;dfj"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/" for ::1 at 2017-05-11 10:17:25 -0400
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"internal"=>true}
+  Rendering /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/sammysteiner/.rvm/gems/ruby-2.3.0/gems/railties-5.0.2/lib/rails/templates/rails/welcome/index.html.erb (6.7ms)
+Completed 200 OK in 131ms (Views: 74.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 10:21:27 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (1.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.1ms)
+Completed 200 OK in 15ms (Views: 1.9ms | ActiveRecord: 9.7ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 10:21:44 -0400
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 10:21:44 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (8.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+[active_model_serializers]   [1m[36mBoard Load (2.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.15ms)
+Completed 200 OK in 17ms (Views: 1.9ms | ActiveRecord: 10.4ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (14.0ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (15.54ms)
+Completed 200 OK in 22ms (Views: 2.2ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-11 10:21:47 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (6.9ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.4ms)
+Completed 200 OK in 32ms (Views: 24.0ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/api/v1/users/1/boards/4/notes/" for ::1 at 2017-05-11 10:22:07 -0400
+Processing by Api::V1::NotesController#index as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mNote Load (1.1ms)[0m  [1m[34mSELECT "notes".* FROM "notes" WHERE (board_id = '4')[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.46ms)
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/v1/sessions" for ::1 at 2017-05-11 10:22:27 -0400
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"user"=>{"name"=>"sammy", "password"=>"[FILTERED]"}}
+Unpermitted parameter: password
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "sammy"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mBoard Load (9.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE (user_id = 102)[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.01ms)
+Completed 200 OK in 16ms (Views: 2.2ms | ActiveRecord: 10.3ms)
+
+
