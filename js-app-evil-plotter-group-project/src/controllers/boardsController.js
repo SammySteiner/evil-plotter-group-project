@@ -67,7 +67,9 @@ class BoardsController{
     Board.showNotes(user_id, board_id).then((data) => {
       const new_board = new Board(board_id)
       data.forEach((note) => {
-        new_board.addNote(note.id, note.title, note.content, note.left, note.top, new_board.id, user_id) // note.height, note.width
+        note.height = '200px'
+        note.width = '200px'
+        new_board.addNote(note.id, note.title, note.content, note.top, note.left, note.height, note.width, note.board_id, sessionStorage.user_id) //
         // rendering note
         $('div#noteContainer').append(view.render(note))
         $('a#save').on('click', () => this.save(new_board))
