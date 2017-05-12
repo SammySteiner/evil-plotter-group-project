@@ -35,7 +35,7 @@ class Note {
     debugger
     return $.ajax ({
       type: 'PUT',
-      url: `http://localhost:3000/api/v1/users/${note.user_id}/boards/${note.board_id}/notes/${note.id}`
+      url: `http://localhost:3000/api/v1/users/${sessionStorage.user_id}/boards/${note.board_id}/notes/${note.id}`
     })
   }
 }
