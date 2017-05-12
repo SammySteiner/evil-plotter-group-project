@@ -103,7 +103,6 @@ class BoardsController{
 
   static save(){
     Board.all.forEach(function(note) {
-      debugger
       Note.put(note)
     })
   }
