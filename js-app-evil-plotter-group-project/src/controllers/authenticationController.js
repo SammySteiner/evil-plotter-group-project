@@ -1,6 +1,5 @@
 class AuthenticationController {
   constructor() {
-    const boardController = new BoardsController()
 
     this.auth()
     $('body').on('submit', '#signup-form' ,function(e){
@@ -8,7 +7,8 @@ class AuthenticationController {
       Authentication.signup().then(function(data) {
         sessionStorage.setItem("user_id", `${data.user_id}`)
         $('#auth').html('')
-        boardController.show()
+        const boardController = new BoardsController()
+        boardController.index()
        //  add board data to a div on the html page with an id of boards.
       })
     })
@@ -17,7 +17,8 @@ class AuthenticationController {
       Authentication.login().then(function(data) {
       sessionStorage.setItem("user_id", `${data.user_id}`)
      $('#auth').html('')
-     boardController.show()
+     const boardController = new BoardsController()
+     boardController.index()
      //  add board data to a div on the html page with an id of boards.
     })
   })
