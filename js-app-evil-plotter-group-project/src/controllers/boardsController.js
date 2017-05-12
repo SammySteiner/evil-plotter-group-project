@@ -70,7 +70,7 @@ class BoardsController{
         new_board.addNote(note.id, note.title, note.content, note.top, note.left, note.height, note.width, note.board_id, sessionStorage.user_id) //
         // rendering note
         $('div#noteContainer').append(view.render(note))
-        $('a#save').on('click', () => this.save(new_board))
+        $('a#save').on('click.save', () => this.save(new_board))
         // make topBar draggable
         $("div.postIt").draggable({ handle: '.topBar' })
         // mouse up after drag -> update

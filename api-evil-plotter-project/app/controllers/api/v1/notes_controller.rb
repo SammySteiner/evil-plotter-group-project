@@ -22,6 +22,7 @@ class Api::V1::NotesController < ApplicationController
 
   def update
     @note.update(note_params)
+    @note.save
   end
 
   def delete
