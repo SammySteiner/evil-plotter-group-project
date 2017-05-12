@@ -8,7 +8,6 @@ class AuthenticationController {
         sessionStorage.setItem("user_id", `${data.user_id}`)
         $('#auth').html('')
         $('body').unbind( "submit.signup" )
-
         const boardController = new BoardsController()
         boardController.index()
        //  add board data to a div on the html page with an id of boards.
@@ -37,6 +36,10 @@ class AuthenticationController {
       e.preventDefault()
       sessionStorage.setItem("user_id", '')
       $('body').unbind( "click.newBoard" )
+      $('body').unbind( "click.viewBoards" )
+      $('body').unbind( "click.deleteBoard" )
+      $('body').unbind( "submit.submitBoard" )
+      $('body').unbind( "click.showBoard" )
       new AuthenticationController()
       $('#noteContainer').html('')
       $('#boardContainer').html('')

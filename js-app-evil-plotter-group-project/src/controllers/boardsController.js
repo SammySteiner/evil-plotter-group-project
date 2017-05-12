@@ -1,7 +1,7 @@
 class BoardsController{
 
   constructor(){
-    $('body').on('click', '.board', function(e){
+    $('body').on('click.showBoard', '.board', function(e){
       const user_id = sessionStorage.user_id
       const board_id = this.id.replace(/\D/g,'')
       const board_title = $(this)[0].textContent
@@ -11,8 +11,7 @@ class BoardsController{
       }).then(function(data){
         const html = `<h1>${board_title}</h1>`
         $("#boardContainer").html(html)
-        const boardsController = new BoardsController()
-        boardsController.show(user_id, board_id)
+        BoardsController.show(user_id, board_id)
       })
     })
 
@@ -28,12 +27,13 @@ class BoardsController{
 
     $('body').on('click.viewBoards', '#viewBoards', function() {
       const view = new BoardView()
+      $('#noteContainer').html('')
       Board.allBoards().then((boards) => {
         $("#boardContainer").html(view.renderBoards(boards))
       })
     })
 
-    $('body').on('submit', '#board-form', function(e){
+    $('body').on('submit.submitBoard', '#board-form', function(e){
       e.preventDefault()
       const title = $("#new-board-content").val()
       const user_id = sessionStorage.user_id
@@ -62,7 +62,7 @@ class BoardsController{
     })
   }
 
-  show(user_id, board_id){
+  static show(user_id, board_id){
     const view = new NoteView()
     Board.showNotes(user_id, board_id).then((data) => {
       const new_board = new Board(board_id)
