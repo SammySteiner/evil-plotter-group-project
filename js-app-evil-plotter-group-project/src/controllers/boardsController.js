@@ -72,6 +72,7 @@ class BoardsController{
     const view = new NoteView()
     Board.showNotes(user_id, board_id).then((data) => {
       const new_board = new Board(board_id)
+      $('a#save').on('click.save', () => {this.save(new_board)})
       data.forEach((note) => {
         note.height = '200px'
         note.width = '200px'
@@ -108,8 +109,8 @@ class BoardsController{
     //grab id of clicked board and render the content as a writeable area
   }
 
-  static save(){
-    Board.all.forEach(function(note) {
+  static save(board){
+    board.notes.forEach(function(note) {
       Note.put(note)
     })
   }

@@ -20,7 +20,19 @@ class Note {
 
   static newNote() {}
 
-  static create() {}
+  static create(noteArr) {
+    const note = noteArr[0]
+    const board_id = $('.board-id').html()
+    const user_id = sessionStorage.user_id
+      return $.ajax ({
+        type: 'POST',
+        url: `http://localhost:3000/api/v1/notes`,
+        data: { note: {
+          id: note.id, title: note.title, content: note.content, left: note.left, top: note.top, height: note.height, width: note.width, board_id: board_id, user_id: user_id
+        }}
+      })
+    }
+
 
   static update(id, title, content, top, left, height, width) {
     this.id = id
