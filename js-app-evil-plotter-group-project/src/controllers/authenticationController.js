@@ -40,6 +40,7 @@ class AuthenticationController {
       $('body').unbind( "click.deleteBoard" )
       $('body').unbind( "submit.submitBoard" )
       $('body').unbind( "click.showBoard" )
+      $('body').unbind('click.newNote')
       new AuthenticationController()
       $('#noteContainer').html('')
       $('#boardContainer').html('')

@@ -1,7 +1,7 @@
 class NotesController {
 
   create() {
-    $('a#newNote').on('click', function(){
+    $('a#newNote').on('click.newNote', function(){
       // add to new board object
       // const board =  Board.all.find()
       Note.all().then(function(data) {
