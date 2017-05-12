@@ -12,6 +12,7 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def create
+    binding.pry
     @note = Note.new(note_params)
     if @note.save
       render json: @note
@@ -36,7 +37,7 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:id, :title, :content, :left, :top, :height, :width)
+    params.require(:note).permit(:id, :title, :content, :left, :top, :height, :width, :board_id)
   end
 
 end
