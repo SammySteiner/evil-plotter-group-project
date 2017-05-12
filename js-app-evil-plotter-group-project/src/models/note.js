@@ -1,5 +1,5 @@
 class Note {
-  constructor(id, title, content, top, left, height, width) {
+  constructor(id, title, content, top, left, height='200px', width='200px', board_id, user_id) {
     this.id = id
     this.title = title
     this.content = content
@@ -7,6 +7,8 @@ class Note {
     this.left = left
     this.height = height
     this.width = width
+    this.board_id = board_id
+    this.user_id = user_id
   }
 
   static all() {
@@ -15,13 +17,9 @@ class Note {
     })
   }
 
-  static newNote() {
-    
-  }
+  static newNote() {}
 
-  static create() {
-
-  }
+  static create() {}
 
   static update(id, title, content, top, left, height, width) {
     this.id = id
@@ -33,15 +31,11 @@ class Note {
     this.width = width
   }
 
-  static post(user_id, board_id) {
+  static put(note) {
+    debugger
     return $.ajax ({
-      url: `http://localhost:3000/api/v1/users/${user_id}/boards/${board_id}/notes/`,
-      // url: `http://localhost:3000/api/v1/users/1/boards/4/notes/`,
-      type: 'POST'
+      type: 'PUT',
+      url: `http://localhost:3000/api/v1/users/${note.user_id}/boards/${note.board_id}/notes/${note.id}`
     })
   }
 }
-
-// + note should have a save button
-
-// + update a note (position and text) using save button

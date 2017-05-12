@@ -3,13 +3,12 @@ class Api::V1::NotesController < ApplicationController
 
   def index
     puts "notes inded"
-    @notes = Note.all.where("board_id = ?", params[:id])
+    @notes = Note.all.where("board_id = ?", params[:board_id])
     render json: @notes
   end
 
   def show
     puts "notes show"
-
     @note = Note.all.where("board_id = ? and id = ?", params[:board_id], params[:id])
     render json: @note
   end
@@ -44,7 +43,7 @@ class Api::V1::NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:title, :content, :left, :top, :height, :width)
+    params.require(:note).permit(:id, :title, :content, :left, :top, :height, :width)
   end
 
 end
