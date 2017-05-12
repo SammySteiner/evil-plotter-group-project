@@ -9,7 +9,7 @@ class BoardsController{
       $.ajax ({
         url: `http://localhost:3000/api/v1/users/${user_id}/boards/${board_id}/notes`
       }).then(function(data){
-        const html = `<h1>${board_title}</h1>`
+        const html = `<h1>${board_title}</h1><p hidden class="board-id">${board_id}</p>`
         $("#boardContainer").html(html)
         BoardsController.show(user_id, board_id)
       })
@@ -68,6 +68,7 @@ class BoardsController{
   }
 
   static show(user_id, board_id){
+    const noteController = new NotesController()
     const view = new NoteView()
     Board.showNotes(user_id, board_id).then((data) => {
       const new_board = new Board(board_id)
@@ -77,8 +78,6 @@ class BoardsController{
         new_board.addNote(note.id, note.title, note.content, note.top, note.left, note.height, note.width, note.board_id, sessionStorage.user_id) //
         // rendering note
         $('div#noteContainer').append(view.render(note))
-        $('a#save').on('click.save', () => this.save(new_board))
-        // make topBar draggable
         $("div.postIt").draggable({ handle: '.topBar' })
         // mouse up after drag -> update
         $('div.topBar').on ('mouseup.setNote', function(event) {
@@ -94,6 +93,7 @@ class BoardsController{
             }
           })
         })
+
       })
     })
   }

@@ -12,7 +12,7 @@ class NoteView {
   }
 
   noteForm() {
-    `<div class="row">
+    return `<div class="row">
       <div class="postIt" style="position: relative; left: 0px; top: 0px">
         <form class="" action="index.html" method="post">
           <div class="topBar">
@@ -25,3 +25,5 @@ class NoteView {
       </div>
     </div>`
   }
+
+}

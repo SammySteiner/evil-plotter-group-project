@@ -3,7 +3,7 @@ class Board {
   constructor(board_id) {
     this.id = board_id
     this.notes = []
-    // Board.all.push(this) // push instance of self into array of board objects
+    Board.all.push(this) // push instance of self into array of board objects
   }
 
   static showNotes(user_id, board_id){
