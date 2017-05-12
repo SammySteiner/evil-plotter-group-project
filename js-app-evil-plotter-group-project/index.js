@@ -5,7 +5,7 @@ $(document).ready(function() {
 
  if (!!sessionStorage.user_id) {
    const controller = new BoardsController()
-   controller.show()
+   controller.index()
    AuthenticationController.logout()
  } else {
    new AuthenticationController()
