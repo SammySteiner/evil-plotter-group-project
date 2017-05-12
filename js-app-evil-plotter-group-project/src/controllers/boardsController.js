@@ -45,12 +45,10 @@ class BoardsController{
       }).then( function(data){
         const title = data.title
         const html = `<h1>${title}</h1>`
-
+        const board_id = data.id
         $("#boardContainer").html(html)
         $("#noteContainer").html('')
-
-        const boardsController = new BoardsController()
-        boardsController.show()
+        BoardsController.show(user_id, board_id)
       })
     })
   }
@@ -72,20 +70,22 @@ class BoardsController{
         new_board.addNote(note.id, note.title, note.content, note.top, note.left, note.height, note.width, note.board_id, sessionStorage.user_id) //
         // rendering note
         $('div#noteContainer').append(view.render(note))
-        $('a#save').on('click', () => this.save(new_board))
+        $('a#save').on('click.save', () => this.save(new_board))
         // make topBar draggable
         $("div.postIt").draggable({ handle: '.topBar' })
         // mouse up after drag -> update
         $('div.topBar').on ('mouseup', function(event) {
-          const id = $('div.topBar')[0].id.replace(/\D/g,'')
-          const title = event.target.outerText
-          const content = $.trim(event.target.parentElement.parentElement.lastElementChild.textContent)
-          const top = $(this).offset().top
-          const left = $(this).offset().left
-          const height = "200px"
-          const width = "200px"
-          Note.update(id, title, content, top, left, height, width)
-          console.log(`updated object title: id: ${id}, ${title}, content: ${content}, top: ${top}px, left:${left}px, height: ${height}, width: ${width}`)
+          Board.all.forEach(function(noteObject){
+            if (parseInt($('div.topBar')[0].id.replace(/\D/g,''), 10) === noteObject.id) {
+              noteObject.id = $('div.topBar')[0].id.replace(/\D/g,'')
+              noteObject.title = event.target.outerText
+              noteObject.content = event.target.parentElement.parentElement.lastElementChild.lastElementChild.innerText
+              noteObject.top = $(event.target).offset().top
+              noteObject.left = $(event.target).offset().left
+              noteObject.height = "200px"
+              noteObject.width = "200px"
+            }
+          })
         })
       })
     })
@@ -101,8 +101,8 @@ class BoardsController{
     //grab id of clicked board and render the content as a writeable area
   }
 
-  static save(board){
-    board.notes.forEach(function(note) {
+  static save(){
+    Board.all.forEach(function(note) {
       Note.put(note)
     })
   }

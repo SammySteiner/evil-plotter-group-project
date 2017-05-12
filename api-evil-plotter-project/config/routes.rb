@@ -20,10 +20,11 @@ Rails.application.routes.draw do
 
       # NOTES
       get '/users/:user_id/boards/:board_id/notes/', to: 'notes#index'
-      get '/users/:user_id/boards/:board_id/notes/:id', to: 'notes#show'
       post '/notes/', to: 'notes#create'
-      put '/users/:user_id/boards/:board_id/notes/:id', to: 'notes#update'
+      put '/notes/:id', to: 'notes#update'
       delete '/notes/:id', to: 'notes#delete'
+      get '/users/:user_id/boards/:board_id/notes/:id', to: 'notes#show'
+
 
     end
   end
