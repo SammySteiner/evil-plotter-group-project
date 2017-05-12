@@ -75,7 +75,7 @@ class BoardsController{
         $("div.postIt").draggable({ handle: '.topBar' })
         // mouse up after drag -> update
         $('div.topBar').on ('mouseup', function(event) {
-          const id = $('div.topBar')[0].id.replace(/\D/g,'')
+          // const id = $('div.topBar')[0].id.replace(/\D/g,'')
           const title = event.target.outerText
           const content = $.trim(event.target.parentElement.parentElement.lastElementChild.textContent)
           const top = $(this).offset().top
