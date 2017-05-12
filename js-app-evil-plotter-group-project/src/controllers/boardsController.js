@@ -101,7 +101,7 @@ class BoardsController{
     //grab id of clicked board and render the content as a writeable area
   }
 
-  save(board){
+  static save(board){
     board.notes.forEach(function(note) {
       Note.put(note)
     })
