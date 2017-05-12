@@ -41,6 +41,10 @@ class AuthenticationController {
       $('body').unbind( "submit.submitBoard" )
       $('body').unbind( "click.showBoard" )
       $('body').unbind('click.newNote')
+
+      $('a#save').unbind('click.save')
+      $('div.topBar').on ('mouseup.setNote' )
+
       new AuthenticationController()
       $('#noteContainer').html('')
       $('#boardContainer').html('')

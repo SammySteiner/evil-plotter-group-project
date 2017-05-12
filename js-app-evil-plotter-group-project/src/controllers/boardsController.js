@@ -28,6 +28,10 @@ class BoardsController{
     $('body').on('click.viewBoards', '#viewBoards', function() {
       const view = new BoardView()
       $('#noteContainer').html('')
+
+      $('a#save').unbind('click.save')
+      $('div.topBar').on ('mouseup.setNote' )
+
       Board.allBoards().then((boards) => {
         $("#boardContainer").html(view.renderBoards(boards))
       })
@@ -35,6 +39,9 @@ class BoardsController{
 
     $('body').on('submit.submitBoard', '#board-form', function(e){
       e.preventDefault()
+      $('a#save').unbind('click.save')
+      $('div.topBar').on ('mouseup.setNote' )
+
       const title = $("#new-board-content").val()
       const user_id = sessionStorage.user_id
 
@@ -74,7 +81,7 @@ class BoardsController{
         // make topBar draggable
         $("div.postIt").draggable({ handle: '.topBar' })
         // mouse up after drag -> update
-        $('div.topBar').on ('mouseup', function(event) {
+        $('div.topBar').on ('mouseup.setNote', function(event) {
           Board.all.forEach(function(noteObject){
             if (parseInt($('div.topBar')[0].id.replace(/\D/g,''), 10) === noteObject.id) {
               noteObject.id = $('div.topBar')[0].id.replace(/\D/g,'')
