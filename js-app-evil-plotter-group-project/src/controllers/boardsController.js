@@ -27,6 +27,7 @@ class BoardsController{
 
     $('body').on('click.viewBoards', '#viewBoards', function() {
       const view = new BoardView()
+      $('#noteContainer').html('')
       Board.allBoards().then((boards) => {
         $("#boardContainer").html(view.renderBoards(boards))
       })
