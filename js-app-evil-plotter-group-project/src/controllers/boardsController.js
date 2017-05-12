@@ -26,6 +26,13 @@ class BoardsController{
       BoardsController.newBoard()
     })
 
+    $('body').on('click.viewBoards', '#viewBoards', function() {
+      const view = new BoardView()
+      Board.allBoards().then((boards) => {
+        $("#boardContainer").html(view.renderBoards(boards))
+      })
+    })
+
     $('body').on('submit', '#board-form', function(e){
       e.preventDefault()
       const title = $("#new-board-content").val()

@@ -33,7 +33,6 @@ class AuthenticationController {
     $('body').on('click', '#logout', function(e){
       e.preventDefault()
       sessionStorage.setItem("user_id", '')
-      // remove board controller????? remove event listeners???
       $('body').unbind( "click.newBoard" )
       new AuthenticationController()
       $('#noteContainer').html('')
